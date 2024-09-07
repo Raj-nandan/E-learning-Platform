@@ -1,0 +1,62 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .home-content {
+    flex: 1;
+    padding-top: 80px; /* This should match the height of your navbar */
+  }
+  
+  .hero {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+  }
+  
+  .feature {
+    text-align: center;
+    max-width: 300px;
+  }
+  
+  .feature img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .about {
+    background-color: #e0e0e0;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .about img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .features {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .feature {
+      margin-bottom: 30px;
+    }
+  }
