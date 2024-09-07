@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/Nav.css';
 import logo from '../images/logo.png';
+import Lectures from './Lectures';
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +30,7 @@ const Nav = () => {
             <Link to="/lectures" className="nav-link" onClick={toggleMenu}>Lectures</Link>
           </li>
           <li className="nav-item">
-            <Link to="/notes" className="nav-link" onClick={toggleMenu}>Notes</Link>
+            <Link to="/notes"className="nav-link" onClick={toggleMenu}>Notes</Link>
           </li>
           <li className="nav-item">
             <Link to="/assessments" className="nav-link" onClick={toggleMenu}>Assessments</Link>
