@@ -170,20 +170,20 @@ const lecturesData = [
 
 
 
-
 const Lectures = () => {
+  const [lectures, setLectures] = useState(lecturesData);
+  const [filteredLectures, setFilteredLectures] = useState(lectures);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredLectures, setFilteredLectures] = useState(lecturesData);
   const [categoryFilter, setCategoryFilter] = useState('');
   const [skillLevelFilter, setSkillLevelFilter] = useState('');
   const [durationFilter, setDurationFilter] = useState('');
 
   useEffect(() => {
     applyFilters();
-  }, [searchTerm, categoryFilter, skillLevelFilter, durationFilter]);
+  }, [searchTerm, categoryFilter, skillLevelFilter, durationFilter, lectures]);
 
   const applyFilters = () => {
-    let result = lecturesData;
+    let result = lectures;
 
     if (searchTerm) {
       result = result.filter((lecture) =>
@@ -207,7 +207,7 @@ const Lectures = () => {
   };
 
   const handleVideoSeen = (lectureId, videoId) => {
-    const updatedLectures = lecturesData.map(lecture => {
+    setLectures(prevLectures => prevLectures.map(lecture => {
       if (lecture.id === lectureId) {
         const updatedVideos = lecture.videos.map(video => 
           video.id === videoId ? { ...video, seen: true } : video
@@ -215,11 +215,7 @@ const Lectures = () => {
         return { ...lecture, videos: updatedVideos };
       }
       return lecture;
-    });
-
-    // Update the lecturesData and re-apply filters
-    lecturesData = updatedLectures;
-    applyFilters();
+    }));
   };
 
   const calculateProgress = (lecture) => {
@@ -227,7 +223,12 @@ const Lectures = () => {
     return Math.round((seenVideos / lecture.videos.length) * 100);
   };
 
-  const LectureCard = ({ lecture }) => {
+  const handleSearchSubmit = (e) => {
+    e.preventDefault(); // Prevents the page from refreshing on form submission
+    applyFilters();
+  };
+
+  const LectureCard = ({ lecture, onVideoSeen }) => {
     const { id, title, description, duration, skillLevel, category, videos } = lecture;
     const progress = calculateProgress(lecture);
 
@@ -247,7 +248,7 @@ const Lectures = () => {
           {videos.map((video) => (
             <div key={video.id} className="video-item">
               <button 
-                onClick={() => handleVideoSeen(id, video.id)}
+                onClick={() => onVideoSeen(id, video.id)}
                 className={video.seen ? 'seen' : ''}
               >
                 {video.seen ? 'Seen' : 'Mark as Seen'}
@@ -265,14 +266,17 @@ const Lectures = () => {
       <Nav />
       <div className="lectures-container">
         <h1>Lectures</h1>
-        
-        <input
-          type="text"
-          placeholder="Search lectures..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="search-bar"
-        />
+
+        <form onSubmit={handleSearchSubmit}>
+          <input
+            type="text"
+            placeholder="Search lectures..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-bar"
+          />
+          <button type="submit">Search</button>
+        </form>
 
         <div className="filters">
           <select onChange={(e) => setCategoryFilter(e.target.value)}>
@@ -300,7 +304,7 @@ const Lectures = () => {
 
         <div className="lecture-list">
           {filteredLectures.map((lecture) => (
-            <LectureCard key={lecture.id} lecture={lecture} />
+            <LectureCard key={lecture.id} lecture={lecture} onVideoSeen={handleVideoSeen} />
           ))}
         </div>
       </div>
