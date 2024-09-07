@@ -1,0 +1,160 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f4f4f4;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --border-radius: 8px;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  .lectures-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+  }
+  
+  .search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .filters select {
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    background-color: white;
+    font-size: 14px;
+  }
+  
+  .filters select:last-child {
+    margin-right: 0;
+  }
+  
+  .lecture-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .lecture-card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .lecture-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .lecture-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+  
+  .lecture-card p {
+    margin-bottom: 10px;
+  }
+  
+  .progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    background-color: var(--secondary-color);
+    height: 100%;
+    transition: width 0.5s ease;
+  }
+  
+  .video-list {
+    margin-top: 15px;
+  }
+  
+  .video-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .video-item button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+  }
+  
+  .video-item button:hover {
+    background-color: #2980b9;
+  }
+  
+  .video-item button.seen {
+    background-color: var(--secondary-color);
+  }
+  
+  .video-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  .video-item a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .filters {
+      flex-direction: column;
+    }
+  
+    .filters select {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .lecture-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .lectures-container {
+      padding: 10px;
+    }
+  
+    .lecture-card {
+      padding: 15px;
+    }
+  }
