@@ -7,25 +7,26 @@ const Home = () => {
     <div className="home">
       <Nav />
       <header className="hero">
-        <h1>Welcome to Our Website</h1>
-        <p>Discover amazing products and services</p>
+        <h1>Welcome to SkillSaga</h1>
+        <p>Unlock Your Potential with Interactive Courses, Assessments, and Certifications</p>
       </header>
       
       <section className="features">
         <div className="feature">
           <img src="/path/to/feature1.jpg" alt="Feature 1" />
-          <h2>Quality Products</h2>
-          <p>We offer the best quality products in the market.</p>
+          <h2>Comprehensive Course Offerings</h2>
+          <p>Skill Saga boasts an extensive library of courses covering a wide range of subjects—from technology and business to creative arts and personal development. Whether you’re looking to advance your career, explore new hobbies, or acquire new skills, our diverse course catalog ensures there’s something for everyone.</p>
         </div>
         <div className="feature">
           <img src="/path/to/feature2.jpg" alt="Feature 2" />
-          <h2>Expert Service</h2>
-          <p>Our team of experts is always ready to assist you.</p>
+          <h2>Expert Instructors</h2>
+          <p>Our courses are crafted and delivered by industry experts who bring real-world experience and cutting-edge knowledge to the table. Each instructor is carefully selected for their expertise and ability to teach complex concepts in an engaging and understandable manner.</p>
         </div>
         <div className="feature">
           <img src="/path/to/feature3.jpg" alt="Feature 3" />
-          <h2>Fast Delivery</h2>
-          <p>Get your orders delivered quickly and efficiently.</p>
+          <h2>Interactive Learning Experience
+          </h2>
+          <p>We believe that learning should be engaging and interactive. Skill Saga incorporates a variety of multimedia elements, including videos, quizzes, and interactive exercises, to make learning not only effective but also enjoyable. Our platform supports different learning styles to ensure that every learner can thrive.</p>
         </div>
       </section>
       
