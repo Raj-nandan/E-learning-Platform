@@ -60,3 +60,37 @@
       margin-bottom: 30px;
     }
   }
+
+  .primary-btn {
+    background-color: #4CAF50; /* A green color, you can adjust this to match your website's color scheme */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .primary-btn:hover {
+    background-color: #45a049; /* A slightly darker shade for hover effect */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .primary-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* If you want to style it differently when signed in */
+  .primary-btn.signout {
+    background-color: #f44336; /* Red color for signout */
+  }
+  
+  .primary-btn.signout:hover {
+    background-color: #d32f2f;
+  }
