@@ -6,6 +6,7 @@ import first from '../images/first.jpg'
 import second from '../images/second.jpg'
 import third from '../images/third.jpg'
 import About from '../images/About.jpg'
+
 const Home = () => {
   const [showModal, setShowModal] = useState(false)
   const [isSignup, setIsSignup] = useState(true)
@@ -17,6 +18,10 @@ const Home = () => {
     console.log('Clicked')
     setShowModal(true)
     setIsSignup(true)  // Set to true to show signup page
+  }
+
+  const handleCloseModal = () => {
+    setShowModal(false)
   }
 
   return (
@@ -32,12 +37,12 @@ const Home = () => {
       
       <section className="features">
         <div className="feature">
-          <img src={first} />
+          <img src={first} alt="Feature 1" />
           <h2>Comprehensive Course Offerings</h2>
           <p>Skill Saga boasts an extensive library of courses covering a wide range of subjects—from technology and business to creative arts and personal development. Whether you're looking to advance your career, explore new hobbies, or acquire new skills, our diverse course catalog ensures there's something for everyone.</p>
         </div>
         <div className="feature">
-          <img src={second}alt="Feature 2" />
+          <img src={second} alt="Feature 2" />
           <h2>Expert Instructors</h2>
           <p>Our courses are crafted and delivered by industry experts who bring real-world experience and cutting-edge knowledge to the table. Each instructor is carefully selected for their expertise and ability to teach complex concepts in an engaging and understandable manner.</p>
         </div>
@@ -56,9 +61,8 @@ const Home = () => {
 
       {showModal && (
         <AuthModal 
-          setShowModal={setShowModal} 
+          onClose={handleCloseModal}
           isSignup={isSignup}
-          setIsSignup={setIsSignup}
         />
       )}
     </div>

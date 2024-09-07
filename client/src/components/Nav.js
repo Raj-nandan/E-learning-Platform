@@ -21,6 +21,10 @@ const Nav = () => {
     setIsSignUp(false); // Set to false for login
   };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <>
       <nav className="navbar sticky">
@@ -48,16 +52,18 @@ const Nav = () => {
               <Link to="/courses" className="nav-link" onClick={toggleMenu}>Courses</Link>
             </li>
             <li className="nav-item">
-              {!authToken && <button className="nav-btn" onClick={handleClick}>Log in</button>}
+              <Link to="/dashboard" className="nav-link" onClick={toggleMenu}>Dashboard</Link>
+            </li>
+            <li className="nav-item">
+              {!authToken && <button className="nav-btn" onClick={handleClick}>Log out</button>}
             </li>
           </ul>
         </div>
       </nav>
       {showModal && (
         <AuthModal 
-          setShowModal={setShowModal} 
+          onClose={handleCloseModal}
           isSignup={isSignUp}
-          setIsSignup={setIsSignUp}
         />
       )}
     </>
